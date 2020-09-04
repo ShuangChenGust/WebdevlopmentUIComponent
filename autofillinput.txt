@@ -1,0 +1,53 @@
+Requirement:
+Realize the auto fill in the input box.
+
+
+1.  对input框中输入的字符进行匹配，将匹配到的内容以菜单的形式展现在 input框的下方； 2.  只针对英文字符进行匹配，并且匹配到的内容在菜单中加粗； 3.  通过键盘上的上下箭头可以对菜单进行选择，按下回车后将选中的内容写入到 input框中；
+
+
+Note1:
+Usage:
+Execute a JavaScript immediately after a page has been loaded:
+window.onload=function()
+
+Note2:
+Offset:
+Definition and Usage
+The offsetTop property returns the top position (in pixels) relative to the top of the offsetParent element.
+
+The returned value includes:
+
+the top position, and margin of the element
+the top padding, scrollbar and border of the offsetParent element
+var testDiv = document.getElementById("test");
+document.getElementById("demo").innerHTML = testDiv.offsetTop;
+
+Note3:Web API
+The HTMLElement.focus() method sets focus on the specified element, if it can be focused. The focused element is the element which will receive keyboard and similar events by default.
+
+Note4:RegExp
+
+Anchor	Legend	Example	Sample Match
+\d 0 to 9
+\w  word chacters
+\s space
+\D not a digit as you defined number
+\W not a word
+\S not a space
+
+* zero or more times;
+? one or none times;
++ one or more;
+{x} exactly x times;
+
+[^x] one is not x
+^ start or start of a line; if in bracket, means not;
+
+
+Cheat Sheet:
+https://www.rexegg.com/regex-quickstart.html
+^	Start of string or start of line depending on multiline mode. (But when [^inside brackets], it means "not")	^abc .*	abc (line start)
+
+Note5:
+RegExp.prototype.test()
+The test() method executes a search for a match between a regular expression and a specified string. Returns true or false.

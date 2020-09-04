@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>原生js slide</title>
+	<style type="text/css">
+	*{padding: 0; margin: 0;}
+	#slide{
+		width: 960px; height: 160px; position: relative; margin: 30px auto; border: 1px solid #ccc;
+	}
+	#slide .content{width: 960px;  height: 160px; overflow: hidden; position: relative;}
+	#slide ul{
+		position: absolute;
+		-webkit-transition:all .27s ease-in;
+		-moz-transition:all .27s ease-in;
+		-o-transition:all .27s ease-in;
+		transition:all .27s ease-in;}
+	#slide li{list-style: none; float: left; width: 140px; height: 140px; margin: 10px; background: #c1c1c1; overflow: hidden;}
+	#slide .next,#slide .prev{position: absolute;  width: 28px; height: 28px; background: #999; overflow: hidden;}
+	#slide .next{right: -28px; top: 66px;}
+	#slide .prev{left: -28px; top: 66px;}
+	</style>
+</head>
+<body>
+	<div id="slide">
+		<div class="content">
+			<ul>
+				<li>1</li>
+				<li>2</li>
+				<li>3</li>
+				<li>4</li>
+				<li>5</li>
+				<li>6</li>
+				<li>7</li>
+				<li>8</li>
+				<li>9</li>
+				<li>10</li>
+				<li>11</li>
+				<li>12</li>
+				<li>13</li>
+				<li>14</li>
+			</ul>
+		</div>
+		<a class="next" id="next" href="javascript:;">next</a>
+		<a class="prev" id="prev" href="javascript:;">prev</a>
+	</div>
+	<script type="text/javascript">
+	var obj = document.getElementById('slide');
+	var next = document.getElementById('next'),
+		prev = document.getElementById('prev'),
+		ul = obj.getElementsByTagName('ul')[0],
+		liArr = obj.getElementsByTagName('li'),
+		li_width = liArr[0].offsetWidth + 20,
+		li_length = liArr.length,
+		show_length = 6,
+		index = 0;
+	function slide(){
+		ul.style.width = li_width * li_length + 'px';
+		ul.style.left = 0;
+	}
+	function animation(){
+		if(index <= 0){
+			prev.style.cursor = 'default';
+			next.style.cursor = 'pointer';
+			index = 0;
+		}else if(index >= (li_length - show_length)){
+			prev.style.cursor = 'pointer';
+			next.style.cursor = 'default';
+			index = (li_length -show_length);
+		}
+		var goal = li_width * -index;
+		ul.style.left = goal + 'px';
+	}
+	obj.onmousewheel = function(e){	
+		var d = parseInt(e.wheelDelta)> 0 ? 1:-1;  //判断滚动方向
+		index += 1*d;
+		animation();
+	}
+	next.onclick = function(e){
+		var target = e.target;
+		prev.style.cursor = 'pointer';
+		index += 1;
+		animation();
+	}
+	prev.onclick = function(e){
+		var target = e.target;
+		next.style.cursor = 'pointer';
+		index -= 1;
+		animation();
+	}
+	slide();
+	</script>
+</body>
+</html>

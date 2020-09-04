@@ -1,0 +1,18 @@
+*{margin:0;padding:0;}
+li{list-style:none;}
+body{font-size:14px;font-family:"Microsoft yahei";}
+.clear{zoom:1;}
+.clear:after{content:"";display:block;clear:both;height:0;}
+.content{padding:5px 0;position:relative;border:1px solid #000000;width: 600px;
+margin: 0 auto;}
+.t{width:0;height:0;font-size:0;position:absolute;border-width:20px;top:50%;margin-top:-20px;cursor:pointer;}
+.left{border-style:dashed solid dashed dashed;left:0;}
+.right{border-style:dashed dashed dashed solid;right:0;}
+.wrap{overflow:hidden;position:relative;margin:0 auto;border:1px solid #000000;width:420px;height:84px;}
+.ul1{position:absolute;}
+.ul1 li{float:left;padding:10px 5px;}
+.black_l{border-color:transparent #000000 transparent transparent;}
+.gray_l{border-color:transparent #ddd transparent transparent;}
+.black_r{border-color:transparent transparent transparent #000000;}
+.gray_r{border-color:transparent transparent transparent #ddd;}
+img{width:60px;height:60px;}

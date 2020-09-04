@@ -1,0 +1,10 @@
+
+
+
+Set a <div> element to not be displayed:
+ However, if you set display:none, it hides the entire element, while visibility:hidden means that the contents of the element will be invisible, but the element stays in its original position and size.
+
+ Note2:
+ Select the <option> element with index "2":
+
+document.getElementById("mySelect").selectedIndex = "2";

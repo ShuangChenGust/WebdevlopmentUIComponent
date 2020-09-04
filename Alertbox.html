@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="{CHARSET}">
+		<title>提示框</title>
+		<style>
+			
+			html,p{margin:0;padding:0;line-height:30px;}
+			#tishi{
+				position:absolute;
+				left:600px;
+				min-height:150px;
+				border:1px solid black;
+				padding:10px 12px;
+				display:none;
+				background:#fff;
+				
+			}
+			#title{
+				min-width:200px;
+			}
+			#close{
+				position:absolute;
+				right:15px;
+				top:10px;
+				cursor:pointer;
+			}
+			#content{
+				margin-top:10px;
+				min-height:70px;
+				padding:0 10px;
+			}
+			a{
+				width:60px;
+				line-height:30px;
+				float:right;
+				text-align:center;
+				cursor:pointer;
+				border:1px solid skyblue;
+				margin-right:5px;
+				border-radius:5px;
+			}
+			a:hover{
+				background:rgba(0,0,0,0.4);
+				color:#fff;
+			}
+			#answer{
+				display:none;
+				margin-top:30px;
+				margin-bottom:30px;
+			}
+		</style>
+	</head>
+	<body>
+		<select id='sel'>
+			<option>请选择</option>
+			<option>alert</option>
+			<option>confirm</option>
+			<option>prompt</option>
+		</select>
+		<div id='tishi'>
+			<p id='title'>网页来自于</p>
+			<p id='close'>X</p>
+			<p id='content'>ss</p>
+			<input type='text' id='answer'/>
+			<a id='cancel'>取消</a>
+			<a id='sure'>确定</a>
+		</div>
+		<script>
+			var oSel = document.getElementById('sel');
+			var oTishi = document.getElementById('tishi');
+			var title = document.getElementById('title');
+			var oContent = document.getElementById('content');
+			var suer = document.getElementById('sure');
+			var cancel = document.getElementById('cancel');
+			var answer = document.getElementById('answer');
+			var type = '';
+			
+			function hide(obj){
+				obj.style.display = 'none';
+			}
+			//反转按钮的显示
+			function toggle(type){
+				oContent.style.display = (type=='prompt')?'none':'block';
+				answer.style.display = (type=='prompt')?'block':'none';
+				cancel.style.display = (type=='alert')?'none':'block';
+			}
+			//输入弹出框类型和内容
+			function show(type,content){
+				var result = '';
+				
+				if(type == 'alert'){
+					cancel.style.display = 'none';
+					
+					title.innerHTML = '这是alert信息:';
+					oContent.innerHTML = content || '你已经完成了所有练习！';
+					
+					
+				}else if(type == 'confirm'){
+					title.innerHTML = '这是confirm信息:';
+					oContent.innerHTML = content || '你确定完成提交试卷了吗？';
+				}else{
+					title.innerHTML = '请输入您的答案！';
+					
+				}
+				sure.onclick = function(){
+					hide(oTishi);
+					if(type == 'confirm'){
+						result = true;
+					}else if(type == 'alert'){
+						return false
+					}else{
+						
+					}
+				}
+				cancel.onclick = function(){
+					hide(oTishi);
+					if(type == 'confirm'){
+						result  = false;
+					}
+				}
+				toggle(type);
+				oTishi.style.display = 'block';
+				//返回结果
+				return result;
+			}
+			
+			//获取选中项文本
+			oSel.onchange = function(e){
+				var selType = oSel.options[oSel.selectedIndex].text;
+				show(selType);
+				
+			}
+			//处理弹出框的拖拽
+			oTishi.onmousedown = function(e){
+				this.style.cursor = 'move';
+				var mouseX = e.pageX;
+				var mouseY = e.pageY;
+				var origionX = parseInt(getComputedStyle(oTishi,null).left);
+				var origionY = parseInt(getComputedStyle(oTishi,null).top);
+				var endLeft = mouseX-origionX;
+				var endTop = mouseY-origionY;
+				
+				
+				this.onmousemove = function(e){
+					var nowX = e.pageX;
+					var nowY = e.pageY;
+					var subX = nowX-mouseX;
+					var subY = nowY-mouseY;
+					if(nowX>endLeft && nowX<(document.documentElement.clientWidth-this.clientWidth+endLeft)){
+						this.style.left = origionX+subX + 'px';
+					}
+					if(nowY>endTop && nowY<(document.documentElement.clientHeight-this.clientHeight+endTop)){
+						this.style.top =  origionY+subY + 'px';
+					}
+					
+					
+					
+				}
+			}
+			oTishi.onmouseup = function(e){
+				this.onmousemove = null;
+			}
+		</script>
+	</body>
+</html>
