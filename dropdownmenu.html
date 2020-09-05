@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>任务-4</title>
+	<style type="text/css">
+		*{
+			margin:0;
+			padding:0;
+		}
+		html,body{
+			height:100%;
+			width:100%;
+		}
+        #container{
+        	width:200px;
+        	height:200px;
+        	padding:20px;
+        	border:1px solid #666;
+        	margin:50px 0 0 50px;
+        }
+        #box{
+        	height:30px;
+        	line-height:30px;
+        	width:100%;
+        	background-color:black;
+        	color:white;
+        	text-align:center;
+        	width:120px;
+        	cursor:pointer;
+        	border-bottom:1px solid rgba(0,0,0,.2);
+        	position:relative;
+        }
+        .before{
+        	width:0;
+        	height:0;
+        	border-top:6px solid white;
+        	border-left:6px solid rgba(0,0,0,0);
+        	border-right:6px solid rgba(0,0,0,0);
+        	border-bottom:6px solid rgba(0,0,0,0);
+        	position:absolute;
+        	top:12px;
+        	right:10px;
+        	display:block;
+        }
+        .after{
+        	width:0;
+        	height:0;
+        	border-top:6px solid rgba(0,0,0,0);
+        	border-left:6px solid rgba(0,0,0,0);
+        	border-right:6px solid rgba(0,0,0,0);
+        	border-bottom:6px solid #f60;
+        	position:absolute;
+        	bottom:12px;
+        	right:10px;
+        	display:none;
+        }
+        .active{
+        	background-color:rgba(0,0,0,.1) !important;
+        	color:#f60 !important;
+        }
+        ul{
+        	list-style:none;
+        	width:80%;
+        	height:auto;
+        	background-color:rgba(0,0,0,.1);
+        	padding:6px;
+        	display:none;
+        }
+        ul li{
+        	height:25px;
+        	line-height:25px;
+        	margin-left:15px;
+        	font-size:14px;
+        	cursor:pointer;
+        	color:rgba(0,0,0,.5);
+        }
+        ul li:hover{
+        	color:black;
+        }
+	</style>
+</head>
+<body>
+<div id="container">
+	<div id="box"><span class="before"></span>客户服务<span class="after"></span></div>
+<ul>
+	<li>> 联系客服</li>
+	<li>> 帮助中心</li>
+	<li>> 知识产权保护</li>
+	<li>> 规则中心</li>
+</ul>
+	</div>
+
+<script type="text/javascript">
+	let oDiv = document.querySelector('#box');
+	let oUl = document.querySelector('ul');
+	let box_before = document.querySelector('.before');
+	let box_after = document.querySelector('.after');
+	oDiv.onmouseenter = function(){
+		oUl.style.display = 'block';
+		oDiv.className = 'active';
+		box_before.style.display = 'none';
+		box_after.style.display = 'block';
+	}
+	oUl.onmouseenter = function(){
+		oUl.style.display = 'block';
+		oDiv.className = 'active';
+		box_before.style.display = 'none';
+		box_after.style.display = 'block';
+	}
+	oDiv.onmouseleave = function(){
+		oUl.style.display = 'none';
+		oDiv.className = '';
+		box_before.style.display = 'block';
+		box_after.style.display = 'none';
+	}
+	oUl.onmouseleave = function(){
+		oUl.style.display = 'none';
+		oDiv.className = '';
+		box_before.style.display = 'block';
+		box_after.style.display = 'none';
+	}
+</script>
+</body>
+</html>

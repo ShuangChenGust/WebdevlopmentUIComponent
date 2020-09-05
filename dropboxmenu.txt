@@ -1,0 +1,13 @@
+The Document method querySelector() returns the first Element within the document that matches the specified selector, or group of selectors. If no matches are found, null is returned.
+
+Definition and Usage
+The display property sets or returns the element's display type.
+
+style.display = 'block';
+
+lements in HTML are mostly "inline" or "block" elements: An inline element has floating content on its left and right side. A block element fills the entire line, and nothing can be displayed on its left or right side.
+
+onmouseenter Event
+Execute a JavaScript when moving the mouse pointer onto an image:
+
+<img onmouseenter="bigImg(this)" src="smiley.gif" alt="Smiley">
