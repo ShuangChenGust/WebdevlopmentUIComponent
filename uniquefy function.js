@@ -90,3 +90,32 @@ function uniqueify(arr, cb) {
     console.log(newArr);
   }
   
+
+
+  题目描述
+  给定一个由非负整数填充的m x n的二维数组，现在要从二维数组的左上角走到右下角，请找出路径上的所有数字之和最小的路径。
+  注意：你每次只能向下或向右移动。
+  function minPathSum( grid ) {
+    // write code here
+    var dp=[];var sum1=0;var sum2=0;
+    var n=grid[0].length;
+    var m=grid.length;
+    for(let i=0;i<m;i++){
+        dp[i]=new Array(n);
+        sum1+=grid[i][0];
+        dp[i][0]=sum1;
+    }
+    for(let i=0;i<n;i++){
+        sum2+=grid[0][i];
+        dp[0][i]=sum2;
+    }
+    for(let i=1;i<m;i++){
+        for(let j=1;j<n;j++){
+            dp[i][j]=Math.min(dp[i-1][j],dp[i][j-1])+grid[i][j];
+        }
+    }
+    return dp[m-1][n-1];
+}
+module.exports = {
+    minPathSum : minPathSum
+};

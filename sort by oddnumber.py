@@ -126,3 +126,19 @@ while nums:
     res.append(min(nums))
     nums=mininmax(nums)
 print(" ".join(str(i) for i in res))
+
+
+
+小易给定了一个长度为n的数字序列，对于每一个，小易希望能求解出所有长度为k的连续子序列的最大值中的最小值。
+def mininmax(nums):
+    dp=[]
+    for i in range(len(nums)-1):
+        dp.append(max(nums[i],nums[i+1]))
+    return dp
+n=int(input())
+nums=list(map(int,input().split()))
+res=[]
+while nums:
+    res.append(min(nums))
+    nums=mininmax(nums)
+print(" ".join(str(i) for i in res))
