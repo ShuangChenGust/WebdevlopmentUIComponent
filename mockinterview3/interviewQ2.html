@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>click hi</p>
+    <h1 onClick = "test()"> Hi </h1>
+</body>
+<script type="text/javascript">
+    function test() {
+        alert("!");
+        let h1 = document.createElement("h1");
+        let text = document.createTextNode("Welcome");
+        h1.appendChild(text);
+        document.body.appendChild(h1);
+    }
+
+    sum(2, 3){
+        console.log(2+3);
+    }
+
+    function add(2)(3)() {
+ 
+    }
+    function Person(first, last, age, eyecolor) {
+    this.firstName = first;
+    this.lastName = last;
+    this.age = age;
+    this.eyeColor = eyecolor;
+    }
+
+    Person.prototype.name = function() {
+    return this.firstName + " " + this.lastName;
+    };
+
+</script>
+</html>
+
+Question2:
+set a input form and button, click button to show the input value:
+<!DOCTYPE html>
+<html>
+<body>
+
+First Name: <input type="text" id="myText" value="Mickey">
+
+<p>Click the button to display the value of the value attribute of the text field.</p>
+
+<button onclick="myFunction()">Try it</button>
+
+<p id="demo"></p>
+
+<script>
+function myFunction() {
+  var x = document.getElementById("myText").value;
+  document.getElementById("demo").innerHTML = x;
+}
+</script>
+
+</body>
+</html>
+
+Question3:
+Design a Dropdown list in HTML
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<form>
+  Select your favorite browser:
+  <select id="myList" onchange="myFunction()">
+    <option></option>
+    <option>Google Chrome</option>
+    <option>Firefox</option>  
+    <option>Internet Explorer</option>
+    <option>Safari</option>
+    <option>Opera</option>
+  </select>
+<p>Your favorite browser is: <input type="text" id="demo" size="20"></p>
+</form>
+
+<script>
+function myFunction() {
+  var mylist = document.getElementById("myList");
+  document.getElementById("demo").value = mylist.options[mylist.selectedIndex].text;
+}
+</script>
+
+</body>
+</html>
+
