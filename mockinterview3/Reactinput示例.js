@@ -185,3 +185,76 @@ ReactDOM.render((
   </Router>
 ), document.getElementById('root'))
 
+Example4 利用props 传递参数：
+class App extends React.Component { 
+  constructor(){ 
+   super(); 
+   this.state = { sayings: ""}; 
+   } 
+  update(e){ 
+   this.setState({ sayings: e.target.value}); 
+  } 
+  render(){ 
+   return ( 
+    <div> 
+     Mukul Says <input type="text" onChange = {this.update.bind(this)}/> 
+    <br/> 
+    <em>{this.state.sayings}</em> 
+   </div> 
+  ); 
+ } 
+} 
+ReactDOM.render(< App />, document.getElementById('root')); 
+// using refs 
+class App extends React.Component { 
+  constructor(){ 
+   super(); 
+   this.state = { sayings: ""}; 
+  } 
+  update(e){ 
+   this.setState({ sayings: this.refs.anything.value}); 
+  } 
+  render(){ 
+   return ( 
+    <div> 
+     Mukul Says <input type="text" ref="anything"
+       onChange = {this.update.bind(this)}/> 
+    <br/> 
+    <em>{this.state.sayings}</em> 
+   </div> 
+   ); 
+  } 
+ } 
+  ReactDOM.render(< App />, document.getElementById('root')); 
+
+//  useRef to realize the input and show:
+class App extends React.Component {
+  constructor(props) {
+    super(props)
+    
+    this.textInput = React.createRef();
+    this.state = {
+      value: ''
+    }
+  }
+
+handleSubmit = e => {
+  e.preventDefault();
+  this.setState({ value: this.textInput.current.value})
+};
+
+render() {
+  return (
+    <div>
+      <h1>React Ref - createRef</h1>
+      <h3>Value: {this.state.value}</h3>
+      <form onSubmit={this.handleSubmit}>
+        <input type="text" ref={this.textInput} />
+        <button>Submit</button>
+      </form>
+    </div>
+  );
+}
+}
+
+ReactDOM.render(<App />, document.getElementById("root"));
