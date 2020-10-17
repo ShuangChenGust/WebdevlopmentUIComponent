@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    table, th, td {
+  border: 1px solid black;
+  height: 200px;
+  position: relative;
+  border: 3px solid green; 
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+</style>
+<body>
+    <h2>table test</h2>
+    <div class="center">
+        <table>
+            <tr>
+                <th>1</th>
+                <th>2</th>
+                <th>3</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>2</td>
+                <td rowspan="2">c</td>
+            </tr>
+            <tr>
+                <td>c</td>
+                <td>d</td>
+            </tr>
+        </table>
+    </div>
+
+</body>
+</html>

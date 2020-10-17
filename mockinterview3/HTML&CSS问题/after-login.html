@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="logname"></h1>
+    <h2 id="local"></h2>
+    <h3 id="url"></h3>
+    <script>
+        console.log(document.cookie);
+        document.getElementById('logname').innerText="using cookie  " + document.cookie;
+        var id = localStorage;
+        console.log(id.name);
+        document.getElementById('local').innerText="using localStorage  " + id.name;
+        window.decodeURI(location.pathname);
+        para = window.location.search.substring(1).split("&");
+        text = unescape(para[0].split('=')).split(',')
+        console.log((text));
+        document.getElementById('url').innerText="using URL  " + text[1];
+    </script>
+</body>
+</html>

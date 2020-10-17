@@ -190,7 +190,7 @@ function quickSort(array, left, right) {
                     temp = array[i];
                     array[i] = array[j];
                     array[j] = temp;
-                }
+                } 
             }
             quickSort(array, left, i - 1);
             quickSort(array, i + 1, right);
@@ -203,6 +203,7 @@ function quickSort(array, left, right) {
 }
 
 // Use Pivot, Quick sort solution2:
+//Last Step : left 越过right，左半区start-right，右半区,left -end
 var quickSort = function(nums, start, end){
 	if(start >= end) return
 	let left = start, right = end;

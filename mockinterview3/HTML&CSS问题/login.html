@@ -1,0 +1,30 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Single page login with username</h1>
+    <form name="myForm" >
+        Username: <input type="text" name="name" >
+        password: <input type="password" name="pass">
+        <button type="button" onclick="myFunc(this.form)">Submit</button>
+        <button type="reset">Reset</button>
+    </form>
+    <script>
+        function myFunc(form){
+            var id = form.name.value;
+            document.cookie=id;
+            console.log(id);
+            window.localStorage.name=id;
+            alert("name  "+id)
+            window.location.href='after-login.html?name='+id
+            
+        }
+    </script>
+</body>
+</html>
+<!-- https://blog.csdn.net/m0_37452696/article/details/78310238?utm_medium=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.channel_param&depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.channel_param -->

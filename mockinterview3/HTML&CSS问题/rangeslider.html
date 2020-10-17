@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>simple rangeslider example</h1>
+    <!-- <input id="slider" class="range" type="range" max="10" min="0" value="5"> -->
+    <input type="range" min="1" max="100" value="50" class="slider" id="myRange" onchange="resizeImg()">
+    <p>Value: <span id="demo"></span></p>
+    <img id="image1" src="buffet.png" width="100px" height="100px" style="border: black solid 1px">
+</body>
+<script>
+    // window.onload = function(){
+    //     var x = document.getElementById(myRange);
+    //     var output = document.getElementById(demo);
+    //     output.innerHTML = x;
+    // }
+    var slider = document.getElementById("myRange");
+    var output = document.getElementById("demo");
+    output.innerHTML = slider.value;
+    slider.oninput = function() {
+        output.innerHTML = this.value;
+    }
+
+    function resizeImg(){
+    var image = document.getElementById("image1")
+    var height = image.style.height;
+    var width = image.style.width;
+    console.log(height);
+        image.style.height = 10 * slider.value + 'px';
+        image.style.width = 10 * slider.value + 'px';
+    }
+
+
+</script>
+</html>

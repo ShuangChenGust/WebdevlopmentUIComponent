@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    USERNAME:<input type="text" id="name">
+    <button onclick="MyFunc()">log in</button>
+</body>
+<script>
+    function MyFunc(){
+        var con = document.getElementById("name").value;
+        console.log(con)
+        document.cookie = con;
+        window.location = "./cookie2.html";
+    }
+</script>
+</html>

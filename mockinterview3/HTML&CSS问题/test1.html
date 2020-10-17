@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>this is page1</p>
+    <button onclick="toggle()" href="test2.html">
+    </button>
+    <a href= "test2.html">click here
+    </a>
+    <p id="msg"></p>
+</body>
+<script>
+    function toggle(){
+        var userPreference;
+
+        if (confirm("Do you want to jump to page two?") == true) {
+            userPreference = href="test2.html";
+        } else {
+            userPreference = "jump Canceled!";
+        }
+
+        document.getElementById("msg").innerHTML = userPreference; 
+    }
+    
+</script>
+</html>

@@ -1,0 +1,30 @@
+import React, {useState} from "react";
+import ReactDom from "react-dom";
+
+import {BrowserRouter, ROute, Link, useParams } from "react-router-dom";
+
+const ComOne = () =>{
+    cosnt [text, setText] = useState("");
+
+    return (
+        <div>
+            <h2>Component one</h2>
+            <input type="text" onChange={(e) => e.target.value}></input> //?
+            <Link to="/">
+            <button>Click!</button>
+            </Link>
+        </div>
+    )
+}
+
+cosnt CompTwo = () =>{
+
+    const {inputeText} = useParams();
+    
+    return (
+        <div>
+        <h2>Component Two<h2>
+        <input type="text>
+        </div>
+    )
+}

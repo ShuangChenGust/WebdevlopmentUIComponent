@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img id= "buffet" src="buffet.png" width="200px" height="200px">
+
+
+    <canvas id="myCanvas" width="250px" height="300px" style="border: 1px solid black;">
+
+    </canvas>
+</body>
+<script>
+    window.onload= function(){
+        var c = document.getElementById("myCanvas");
+        var ctx = c.getContext("2d");
+        var img = document.getElementById("buffet");
+        ctx.drawImage(img, 10, 10, 150, 180);
+        ctx.beginPath();
+        ctx.arc(100, 75, 50, 0, 2 * Math.PI);
+        ctx.stroke();
+    }
+    // JavaScript syntax:	context.drawImage(img,x,y,width,height);
+</script>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    /* //vw and vh is 1% of view port. */
+    div{
+        display:flex;
+        widows: 50vw;
+        height: 110vh;
+        justify-content: center;
+        align-items: center;
+    }
+    img{
+        display: block;
+    }
+    img:hover{
+        opacity: 50%;
+        width:60%;
+    }
+</style>
+<body>
+    <div class="container">
+        <img src="./buffet.png" id="image1" onclick="func()" href="./buffet.png">
+    </div>
+</body>
+<script>
+    function func(){
+        var src = document.getElementById("image1").src;
+        console.log(src);
+        // window.location= src;
+        window.open('http://linlizhu.cn')
+    }
+</script>
+</html>
